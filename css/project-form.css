@@ -1,0 +1,193 @@
+/* Project Form Page Styles */
+.project-page {
+    background: var(--background);
+}
+
+.project-form {
+    padding: 8rem 0 6rem;
+}
+
+.form-intro {
+    max-width: 800px;
+    margin-bottom: 4rem;
+}
+
+.form-intro h1 {
+    margin-bottom: 1.5rem;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    color: var(--light-text);
+}
+
+.detailed-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.form-section {
+    margin-bottom: 3rem;
+}
+
+.form-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid var(--text-color);
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(255, 61, 0, 0.1);
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--text-color);
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.form-sidebar {
+    position: sticky;
+    top: 2rem;
+    padding: 2rem;
+    background: var(--light-background);
+    border-radius: 1rem;
+    height: fit-content;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-info h3 {
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    margin-bottom: 1.5rem;
+    color: var(--light-text);
+}
+
+.contact-info a {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--accent-color);
+}
+
+.submit-button {
+    width: auto;
+    padding: 1rem 2rem;
+    background: var(--text-color);
+    color: var(--background);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: start;
+}
+
+.submit-button:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Loading State */
+.submit-button.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Success Message */
+.success-message {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 0.5rem;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.success-message.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .detailed-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-sidebar {
+        position: static;
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-form {
+        padding: 8rem 0 4rem;
+    }
+
+    .form-intro {
+        margin-bottom: 4rem;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+} 

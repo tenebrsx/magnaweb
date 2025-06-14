@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Proyecto | Magna Web</title>
+    <meta name="description" content="Comienza tu proyecto digital con Magna Web. Cuéntanos sobre tu visión y te ayudaremos a hacerla realidad.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-form.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="project-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">MW.</a>
+            <div class="nav-links">
+                <a href="trabajo.html">Trabajo</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="iniciar-proyecto.html" class="cta-button">Iniciar Proyecto</a>
+            </div>
+            <button class="mobile-menu" aria-label="Menú">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Project Form Section -->
+    <section class="project-form">
+        <div class="container">
+            <div class="form-intro">
+                <h1><span class="accent-text">Comencemos</span> tu<br>proyecto <span class="accent-text">digital</span></h1>
+                <p class="intro-text">Cuéntanos sobre tu negocio y objetivos. Te responderemos dentro de 24 horas con una propuesta personalizada.</p>
+            </div>
+            
+            <form id="projectForm" class="detailed-form">
+                <!-- Business Information -->
+                <div class="form-section">
+                    <h2>Información del Negocio</h2>
+                    <div class="form-group">
+                        <label for="businessName">Nombre del Negocio</label>
+                        <input type="text" id="businessName" name="businessName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industria</label>
+                        <select id="industry" name="industry" required>
+                            <option value="">Selecciona una industria</option>
+                            <option value="restaurant">Restaurante/Comida</option>
+                            <option value="retail">Comercio Minorista</option>
+                            <option value="services">Servicios Profesionales</option>
+                            <option value="health">Salud/Bienestar</option>
+                            <option value="other">Otro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Project Details -->
+                <div class="form-section">
+                    <h2>Detalles del Proyecto</h2>
+                    <div class="form-group">
+                        <label>¿Qué tipo de proyecto necesitas?</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="projectType" value="website">
+                                Sitio Web
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="projectType" value="ecommerce">
+                                Tienda en Línea
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="projectType" value="branding">
+                                Identidad de Marca
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="projectType" value="marketing">
+                                Marketing Digital
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Presupuesto Aproximado (DOP)</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Selecciona un rango</option>
+                            <option value="5k-10k">5,000 - 10,000</option>
+                            <option value="10k-20k">10,000 - 20,000</option>
+                            <option value="20k-50k">20,000 - 50,000</option>
+                            <option value="50k+">50,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeline">Tiempo Estimado de Inicio</label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="immediate">Inmediato</option>
+                            <option value="1month">En 1 mes</option>
+                            <option value="3months">En 3 meses</option>
+                            <option value="planning">Aún en planificación</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h2>Información de Contacto</h2>
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Detalles Adicionales del Proyecto</label>
+                        <textarea id="message" name="message" rows="5"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">Enviar Solicitud</button>
+            </form>
+
+            <div class="form-sidebar">
+                <div class="contact-info">
+                    <h3>¿Prefieres hablar primero?</h3>
+                    <p>Contáctanos directamente:</p>
+                    <a href="tel:+18093588113">+1 (809) 358-8113</a>
+                    <a href="mailto:hola@magnaweb.do">hola@magnaweb.do</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/18093588113" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">Chatea con nosotros</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <span class="footer-logo-text">Magna Web</span>
+                    </div>
+                    <p>Santo Domingo,<br>República Dominicana</p>
+                </div>
+                <div class="footer-contact">
+                    <a href="mailto:hola@magnaweb.do">hola@magnaweb.do</a>
+                    <a href="tel:+18093588113">+1 (809) 358-8113</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/project-form.js"></script>
+</body>
+</html> 
