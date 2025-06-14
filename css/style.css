@@ -124,12 +124,29 @@ p {
     border: 1px solid var(--secondary-color);
     border-radius: 2rem;
     transition: all 0.3s ease;
+    background: transparent;
+    color: var(--secondary-color);
+    text-decoration: none;
 }
 
-.cta-button:hover {
+.cta-button:hover,
+.cta-button:focus,
+.cta-button:active {
     background: var(--accent-color) !important;
     border-color: var(--accent-color) !important;
     color: var(--secondary-color) !important;
+    text-decoration: none !important;
+}
+
+/* Override any link default styles */
+a.cta-button:hover,
+a.cta-button:focus,
+a.cta-button:active,
+a.cta-button:visited {
+    background: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: var(--secondary-color) !important;
+    text-decoration: none !important;
 }
 
 .mobile-menu {
@@ -525,11 +542,17 @@ p {
         color: var(--secondary-color);
     }
 
-    /* Fix CTA button hover specificity */
-    .nav-links .cta-button:hover {
+    /* Fix CTA button hover specificity for mobile navigation */
+    .nav-links .cta-button:hover,
+    .nav-links .cta-button:focus,
+    .nav-links .cta-button:active,
+    .nav-links a.cta-button:hover,
+    .nav-links a.cta-button:focus,
+    .nav-links a.cta-button:active {
         background: var(--accent-color) !important;
         border-color: var(--accent-color) !important;
         color: var(--secondary-color) !important;
+        text-decoration: none !important;
     }
 
     .mobile-menu {
@@ -1322,4 +1345,24 @@ p {
     to {
         transform: translateY(-50%) rotate(360deg);
     }
+}
+
+/* FINAL OVERRIDE: Ensure CTA buttons are always red on hover */
+.cta-button:hover,
+.cta-button:focus,
+.cta-button:active,
+a.cta-button:hover,
+a.cta-button:focus,
+a.cta-button:active,
+.nav-links .cta-button:hover,
+.nav-links .cta-button:focus,
+.nav-links .cta-button:active,
+.nav-links a.cta-button:hover,
+.nav-links a.cta-button:focus,
+.nav-links a.cta-button:active {
+    background: #FF3D00 !important;
+    border-color: #FF3D00 !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    outline: none !important;
 } 
