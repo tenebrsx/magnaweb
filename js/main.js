@@ -156,7 +156,7 @@ function testStatsAnimation() {
 }
 
 // Uncomment this line to test basic animation (remove after testing)
-// setTimeout(testStatsAnimation, 2000);
+setTimeout(testStatsAnimation, 2000);
 
 // Scroll Animations
 const fadeUpElements = document.querySelectorAll('.large-text, .stat-text, .service-card, .work-item');
