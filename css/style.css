@@ -127,28 +127,24 @@ p {
     background: transparent;
     color: var(--secondary-color);
     text-decoration: none;
-    mix-blend-mode: normal; /* Isolate from parent blend mode */
-    isolation: isolate; /* Create new stacking context */
+    mix-blend-mode: normal;
+    isolation: isolate;
 }
 
 .cta-button:hover,
 .cta-button:focus,
 .cta-button:active {
-    background: var(--accent-color) !important;
-    border-color: var(--accent-color) !important;
-    color: var(--secondary-color) !important;
-    text-decoration: none !important;
+    opacity: 0.7;
+    text-decoration: none;
 }
 
-/* Override any link default styles */
+/* Clean link styles */
 a.cta-button:hover,
 a.cta-button:focus,
 a.cta-button:active,
 a.cta-button:visited {
-    background: var(--accent-color) !important;
-    border-color: var(--accent-color) !important;
-    color: var(--secondary-color) !important;
-    text-decoration: none !important;
+    opacity: 0.7;
+    text-decoration: none;
 }
 
 .mobile-menu {
@@ -523,6 +519,8 @@ a.cta-button:visited {
         opacity: 0;
         transform: translateY(-100%);
         transition: all 0.3s ease;
+        mix-blend-mode: normal !important;
+        isolation: isolate !important;
     }
 
     .nav-links.active {
@@ -544,17 +542,15 @@ a.cta-button:visited {
         color: var(--secondary-color);
     }
 
-    /* Fix CTA button hover specificity for mobile navigation */
+    /* Clean mobile navigation CTA button */
     .nav-links .cta-button:hover,
     .nav-links .cta-button:focus,
     .nav-links .cta-button:active,
     .nav-links a.cta-button:hover,
     .nav-links a.cta-button:focus,
     .nav-links a.cta-button:active {
-        background: var(--accent-color) !important;
-        border-color: var(--accent-color) !important;
-        color: var(--secondary-color) !important;
-        text-decoration: none !important;
+        opacity: 0.7;
+        text-decoration: none;
     }
 
     .mobile-menu {
@@ -1349,31 +1345,10 @@ a.cta-button:visited {
     }
 }
 
-/* FINAL OVERRIDE: Ensure CTA buttons are always red on hover and isolated from blend modes */
+/* Clean CTA button isolation from blend modes */
 .cta-button,
 .nav-links .cta-button,
 a.cta-button {
-    mix-blend-mode: normal !important;
-    isolation: isolate !important;
-}
-
-.cta-button:hover,
-.cta-button:focus,
-.cta-button:active,
-a.cta-button:hover,
-a.cta-button:focus,
-a.cta-button:active,
-.nav-links .cta-button:hover,
-.nav-links .cta-button:focus,
-.nav-links .cta-button:active,
-.nav-links a.cta-button:hover,
-.nav-links a.cta-button:focus,
-.nav-links a.cta-button:active {
-    background: #FF3D00 !important;
-    border-color: #FF3D00 !important;
-    color: #ffffff !important;
-    text-decoration: none !important;
-    outline: none !important;
     mix-blend-mode: normal !important;
     isolation: isolate !important;
 } 
