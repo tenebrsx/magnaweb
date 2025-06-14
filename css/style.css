@@ -127,9 +127,9 @@ p {
 }
 
 .cta-button:hover {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--secondary-color);
+    background: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: var(--secondary-color) !important;
 }
 
 .mobile-menu {
@@ -523,6 +523,13 @@ p {
     .nav-links a:hover {
         background: var(--accent-color);
         color: var(--secondary-color);
+    }
+
+    /* Fix CTA button hover specificity */
+    .nav-links .cta-button:hover {
+        background: var(--accent-color) !important;
+        border-color: var(--accent-color) !important;
+        color: var(--secondary-color) !important;
     }
 
     .mobile-menu {
@@ -992,6 +999,14 @@ p {
         bottom: 1.5rem;
         right: 1.5rem;
         padding: 0.75rem;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 9999;
+    }
+
+    .whatsapp-text {
+        display: none !important; /* Always hide text on mobile for cleaner look */
     }
 }
 
