@@ -4,20 +4,28 @@ gsap.registerPlugin(ScrollTrigger);
 // Mobile Menu Toggle
 const mobileMenu = document.querySelector('.mobile-menu');
 const navLinks = document.querySelector('.nav-links');
+const navbar = document.querySelector('.navbar');
 const body = document.body;
 
 if (mobileMenu && navLinks) {
-    mobileMenu.addEventListener('click', () => {
+    // Add both click and touchstart for better mobile compatibility
+    const toggleMenu = () => {
+        console.log('Mobile menu clicked'); // Debug log
         navLinks.classList.toggle('active');
         mobileMenu.classList.toggle('active');
+        navbar.classList.toggle('menu-open');
         body.classList.toggle('menu-open');
-    });
+    };
+    
+    mobileMenu.addEventListener('click', toggleMenu);
+    mobileMenu.addEventListener('touchstart', toggleMenu);
 
     // Close menu when clicking on a link
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             mobileMenu.classList.remove('active');
+            navbar.classList.remove('menu-open');
             body.classList.remove('menu-open');
         });
     });
@@ -27,6 +35,7 @@ if (mobileMenu && navLinks) {
         if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove('active');
             mobileMenu.classList.remove('active');
+            navbar.classList.remove('menu-open');
             body.classList.remove('menu-open');
         }
     });
@@ -44,44 +53,55 @@ gsap.from(lines, {
     ease: "power3.out"
 });
 
-// Statistics Counter Animation
-const animateCounter = (element, target) => {
-    const originalText = element.textContent;
-    const isPercentage = originalText.includes('%');
-    const isSlash = originalText.includes('/');
+// Statistics Counter Animation - Universal version
+document.addEventListener('DOMContentLoaded', function() {
+    const statNumbers = document.querySelectorAll('.stat-number[data-value]');
     
-    let suffix = '';
-    if (isPercentage) suffix = '%';
-    else if (isSlash) suffix = '/7';
+    console.log('Found stat numbers:', statNumbers.length); // Debug log
     
-    gsap.fromTo(element, 
-        { 
-            textContent: 0 
-        }, 
-        {
-            textContent: target,
-            duration: 2,
-            ease: "power2.out",
-            snap: { textContent: target % 1 === 0 ? 1 : 0.1 },
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: element,
-                start: "top bottom-=100",
-                toggleActions: "play none none none"
-            },
-            onUpdate: function() {
-                const currentValue = Math.round(this.targets()[0].textContent * 10) / 10;
-                element.textContent = currentValue + suffix;
-            }
+    statNumbers.forEach(stat => {
+        const targetValue = parseFloat(stat.getAttribute('data-value'));
+        console.log('Animating stat:', targetValue); // Debug log
+        
+        // Reset to 0 initially
+        if (targetValue === 24) {
+            stat.textContent = '0/7';
+        } else {
+            stat.textContent = '0%';
         }
-    );
-};
-
-// Initialize stat counters
-const statNumbers = document.querySelectorAll('.stat-number[data-value]');
-statNumbers.forEach(stat => {
-    const target = parseFloat(stat.getAttribute('data-value'));
-    animateCounter(stat, target);
+        
+        ScrollTrigger.create({
+            trigger: stat,
+            start: "top bottom-=50",
+            once: true,
+            onEnter: () => {
+                console.log('Triggering animation for:', targetValue); // Debug log
+                
+                gsap.fromTo({value: 0}, 
+                    {
+                        value: targetValue,
+                        duration: 2,
+                        ease: "power2.out",
+                        onUpdate: function() {
+                            const currentValue = this.targets()[0].value;
+                            
+                            // Handle different stat types
+                            if (targetValue === 24) {
+                                // Special case for 24/7
+                                stat.textContent = Math.round(currentValue) + '/7';
+                            } else if (targetValue === 78.3) {
+                                // 78.3% case
+                                stat.textContent = currentValue.toFixed(1) + '%';
+                            } else {
+                                // Regular percentage case
+                                stat.textContent = Math.round(currentValue) + '%';
+                            }
+                        }
+                    }
+                );
+            }
+        });
+    });
 });
 
 // Scroll Animations
@@ -142,6 +162,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 mobileMenu.classList.remove('active');
+                navbar.classList.remove('menu-open');
                 body.classList.remove('menu-open');
             }
         }

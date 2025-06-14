@@ -562,8 +562,25 @@ a.cta-button:visited {
         text-decoration: none;
     }
 
+    /* WhatsApp Button in Mobile Menu */
+    .nav-links .whatsapp-mobile {
+        background: #25D366;
+        color: white !important;
+        border: 2px solid #25D366;
+        border-radius: 2rem;
+        padding: 1rem 2rem;
+        margin-top: 1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links .whatsapp-mobile:hover {
+        background: #1FAD54;
+        border-color: #1FAD54;
+    }
+
     .mobile-menu {
-        display: block;
+        display: block !important;
         background: none;
         border: none;
         cursor: pointer;
@@ -571,6 +588,8 @@ a.cta-button:visited {
         position: relative;
         width: 30px;
         height: 30px;
+        padding: 5px;
+        touch-action: manipulation; /* Better mobile touch handling */
     }
 
     .mobile-menu span {
@@ -590,6 +609,12 @@ a.cta-button:visited {
 
     /* Completely isolate navbar when mobile menu is active */
     .navbar:has(.nav-links.active) {
+        mix-blend-mode: normal !important;
+        isolation: isolate !important;
+    }
+
+    /* Fallback for older browsers */
+    .navbar.menu-open {
         mix-blend-mode: normal !important;
         isolation: isolate !important;
     }
@@ -677,17 +702,29 @@ a.cta-button:visited {
     /* Stats Grid Mobile */
     .stats-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        margin-bottom: 3rem;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .stat-item {
+        padding: 1rem 0.5rem;
     }
 
     .stat-number {
-        font-size: clamp(2rem, 8vw, 3rem);
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        line-height: 1.1;
+    }
+
+    .stat-item p {
+        font-size: 0.9rem;
+        line-height: 1.3;
+        padding: 0 0.5rem;
     }
 
     /* Social Proof Section Mobile */
     .social-proof {
-        padding: 4rem 0;
+        padding: 3rem 0;
     }
 
     /* Process Section Mobile */
@@ -1039,11 +1076,12 @@ a.cta-button:visited {
     .whatsapp-button {
         bottom: 1.5rem;
         right: 1.5rem;
-        padding: 0.75rem;
+        padding: 1rem;
         display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
         z-index: 9999;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
     }
 
     .whatsapp-text {

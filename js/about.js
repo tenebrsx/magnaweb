@@ -115,27 +115,4 @@ gsap.from(contactCta, {
     }
 });
 
-// Stat Counter Animation
-const statNumbers = document.querySelectorAll('.stat-number');
-
-statNumbers.forEach(stat => {
-    const targetValue = parseFloat(stat.getAttribute('data-value'));
-    
-    ScrollTrigger.create({
-        trigger: stat,
-        start: "top bottom-=100",
-        once: true,
-        onEnter: () => {
-            gsap.fromTo({value: 0}, 
-                {
-                    value: targetValue,
-                    duration: 2,
-                    ease: "power2.out",
-                    onUpdate: function() {
-                        stat.textContent = this.targets()[0].value.toFixed(1) + '%';
-                    }
-                }
-            );
-        }
-    });
-}); 
+// Stats animations are now handled in main.js universally 
