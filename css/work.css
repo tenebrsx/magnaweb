@@ -214,7 +214,8 @@
     color: var(--light-text);
 }
 
-.cta-button {
+/* Work page specific CTA button - only applies to buttons in start-project section */
+.start-project .cta-button {
     display: inline-block;
     padding: 1.25rem 2.5rem;
     background: var(--text-color);
@@ -225,7 +226,7 @@
     transition: all 0.3s ease;
 }
 
-.cta-button:hover {
+.start-project .cta-button:hover {
     background: var(--accent-color);
     transform: translateY(-2px);
 }
