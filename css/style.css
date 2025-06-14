@@ -113,6 +113,13 @@ p {
     padding: 0.75rem 1.5rem;
     border: 1px solid var(--secondary-color);
     border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--secondary-color);
 }
 
 .mobile-menu {
