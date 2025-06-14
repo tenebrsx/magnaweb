@@ -199,10 +199,12 @@
     .mission-content,
     .culture-grid {
         grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
     .mission-stats {
         grid-template-columns: repeat(2, 1fr);
+        max-width: 400px;
     }
     
     .values-grid {
@@ -211,21 +213,171 @@
 }
 
 @media (max-width: 768px) {
+    /* About Hero Mobile */
     .about-hero {
-        padding: 8rem 0 4rem;
+        padding: 6rem 0 3rem;
+        min-height: 70vh;
+    }
+
+    .about-hero h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.1;
+    }
+
+    .about-hero .line {
+        margin-bottom: 0.3rem;
+    }
+
+    /* Mission Section Mobile */
+    .mission {
+        padding: 4rem 0;
+    }
+
+    .mission-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .mission-text h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .mission-text .large-text {
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .mission-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .mission-stats {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stat {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .stat p {
+        font-size: 0.9rem;
+    }
+
+    /* Values Section Mobile */
+    .values {
+        padding: 4rem 0;
+    }
+
+    .values h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 2rem;
     }
 
     .values-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
     }
-    
+
+    .value-card {
+        padding: 1.5rem;
+        text-align: center;
+        background: var(--background);
+        border-radius: 0.5rem;
+    }
+
+    .value-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .value-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Team Section Mobile */
+    .team {
+        padding: 4rem 0;
+    }
+
+    .team h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 2rem;
+    }
+
     .team-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+        max-width: 300px;
+    }
+
+    .team-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .team-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Culture/Purpose Section Mobile */
+    .culture {
+        padding: 4rem 0;
+    }
+
+    .culture h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .culture-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .culture-text .large-text {
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .culture-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .culture-image {
+        display: none; /* Hide empty placeholder on mobile */
+    }
+
+    /* Contact CTA Mobile */
+    .contact-cta {
+        padding: 4rem 0;
+    }
+
+    .contact-cta h2 {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+        margin-bottom: 1rem;
+    }
+
+    .contact-cta p {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-cta .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 250px;
     }
 } 
