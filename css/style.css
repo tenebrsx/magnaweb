@@ -510,31 +510,35 @@ a.cta-button:visited {
         left: 0;
         right: 0;
         bottom: 0;
-        background: var(--background);
+        width: 100vw;
+        height: 100vh;
+        background: #FFFFFF;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         font-size: 1.5rem;
-        z-index: 1000;
+        z-index: 9999;
         opacity: 0;
-        transform: translateY(-100%);
+        visibility: hidden;
         transition: all 0.3s ease;
         mix-blend-mode: normal !important;
         isolation: isolate !important;
+        overflow: hidden;
     }
 
     .nav-links.active {
         display: flex;
         opacity: 1;
-        transform: translateY(0);
+        visibility: visible;
     }
 
     .nav-links a {
-        color: var(--text-color);
+        color: #000000;
         margin: 1rem 0;
         padding: 1rem 2rem;
         border-radius: 2rem;
         transition: all 0.3s ease;
+        text-decoration: none;
     }
 
     .nav-links a:hover {
@@ -542,7 +546,12 @@ a.cta-button:visited {
         color: var(--secondary-color);
     }
 
-    /* Clean mobile navigation CTA button */
+    /* Mobile navigation CTA button styling for white background */
+    .nav-links .cta-button {
+        border-color: #000000;
+        color: #000000;
+    }
+
     .nav-links .cta-button:hover,
     .nav-links .cta-button:focus,
     .nav-links .cta-button:active,
@@ -572,6 +581,17 @@ a.cta-button:visited {
         margin: 5px 0;
         transition: all 0.3s ease;
         border-radius: 2px;
+    }
+
+    /* Ensure hamburger is visible when menu is open */
+    .mobile-menu.active span {
+        background: #000000;
+    }
+
+    /* Completely isolate navbar when mobile menu is active */
+    .navbar:has(.nav-links.active) {
+        mix-blend-mode: normal !important;
+        isolation: isolate !important;
     }
 
     .mobile-menu.active span:nth-child(1) {
