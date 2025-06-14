@@ -1,6 +1,10 @@
 // Initialize GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+// Debug GSAP and ScrollTrigger availability
+console.log('GSAP loaded:', typeof gsap !== 'undefined');
+console.log('ScrollTrigger loaded:', typeof ScrollTrigger !== 'undefined');
+
 // Mobile Menu Toggle
 const mobileMenu = document.querySelector('.mobile-menu');
 const navLinks = document.querySelector('.nav-links');
@@ -54,14 +58,20 @@ gsap.from(lines, {
 });
 
 // Statistics Counter Animation - Universal version
-document.addEventListener('DOMContentLoaded', function() {
+function initStatsAnimation() {
     const statNumbers = document.querySelectorAll('.stat-number[data-value]');
     
     console.log('Found stat numbers:', statNumbers.length); // Debug log
     
+    if (statNumbers.length === 0) {
+        console.log('No stat numbers found, retrying in 100ms...');
+        setTimeout(initStatsAnimation, 100);
+        return;
+    }
+    
     statNumbers.forEach(stat => {
         const targetValue = parseFloat(stat.getAttribute('data-value'));
-        console.log('Animating stat:', targetValue); // Debug log
+        console.log('Setting up animation for stat:', targetValue); // Debug log
         
         // Reset to 0 initially
         if (targetValue === 24) {
@@ -72,15 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
         ScrollTrigger.create({
             trigger: stat,
-            start: "top bottom-=50",
+            start: "top 80%",
             once: true,
             onEnter: () => {
-                console.log('Triggering animation for:', targetValue); // Debug log
+                console.log('🎯 Triggering animation for:', targetValue); // Debug log
                 
                 gsap.fromTo({value: 0}, 
                     {
                         value: targetValue,
-                        duration: 2,
+                        duration: 2.5,
                         ease: "power2.out",
                         onUpdate: function() {
                             const currentValue = this.targets()[0].value;
@@ -102,7 +112,51 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
+}
+
+// Initialize after a short delay to ensure DOM is ready
+setTimeout(initStatsAnimation, 500);
+
+// Fallback: Simple animation without ScrollTrigger for testing
+function testStatsAnimation() {
+    const statNumbers = document.querySelectorAll('.stat-number[data-value]');
+    console.log('🧪 Testing basic animation for', statNumbers.length, 'stats');
+    
+    statNumbers.forEach(stat => {
+        const targetValue = parseFloat(stat.getAttribute('data-value'));
+        
+        // Reset to 0 initially
+        if (targetValue === 24) {
+            stat.textContent = '0/7';
+        } else {
+            stat.textContent = '0%';
+        }
+        
+        // Simple GSAP animation without ScrollTrigger
+        gsap.fromTo({value: 0}, 
+            {
+                value: targetValue,
+                duration: 3,
+                delay: 1,
+                ease: "power2.out",
+                onUpdate: function() {
+                    const currentValue = this.targets()[0].value;
+                    
+                    if (targetValue === 24) {
+                        stat.textContent = Math.round(currentValue) + '/7';
+                    } else if (targetValue === 78.3) {
+                        stat.textContent = currentValue.toFixed(1) + '%';
+                    } else {
+                        stat.textContent = Math.round(currentValue) + '%';
+                    }
+                }
+            }
+        );
+    });
+}
+
+// Uncomment this line to test basic animation (remove after testing)
+// setTimeout(testStatsAnimation, 2000);
 
 // Scroll Animations
 const fadeUpElements = document.querySelectorAll('.large-text, .stat-text, .service-card, .work-item');
