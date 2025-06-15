@@ -29,8 +29,8 @@ gsap.from(formIntro, {
 // Project Form Handler with EmailJS
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Initialize EmailJS (same config as main.js)
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    // Initialize EmailJS 
+    emailjs.init("6LVL8JCu6dGzprKMP"); // EmailJS public key
     
     const projectForm = document.getElementById('projectForm');
     
@@ -77,28 +77,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 project_details: formData.get('message') || 'Sin detalles adicionales',
                 
                 // Meta
-                to_name: 'Magna Web Team',
+                to_name: 'Angel Scott',
+                to_email: 'angelscott2004@gmail.com',
                 form_type: 'Solicitud de Proyecto Detallada'
             };
             
             // Send email via EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_PROJECT_TEMPLATE_ID', templateParams)
+            emailjs.send('service_mqv1r38', 'template_magna_project', templateParams)
                 .then(function(response) {
                     console.log('Project form SUCCESS!', response.status, response.text);
                     
-                    // Show success message
-                    showFormMessage('¡Solicitud enviada exitosamente! Te contactaremos dentro de 24 horas con una propuesta personalizada.', 'success');
-                    projectForm.reset();
-                    
-                    // Reset button
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                    
-                    // Scroll to success message
-                    document.querySelector('.form-message').scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'center' 
-                    });
+                    // Redirect to thank you page
+                    window.location.href = 'gracias.html';
                     
                 }, function(error) {
                     console.log('Project form FAILED...', error);

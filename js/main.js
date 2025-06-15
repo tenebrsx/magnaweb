@@ -384,6 +384,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================================
     // CONTACT FORM HANDLING
     // ========================================
+    // Initialize EmailJS 
+    emailjs.init("6LVL8JCu6dGzprKMP"); // EmailJS public key
+    
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -397,20 +400,35 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.textContent = 'Enviando...';
             submitButton.disabled = true;
             
-            // Simulate form submission (replace with actual EmailJS implementation)
-            setTimeout(() => {
-                console.log('Form submitted:', {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    message: formData.get('message')
+            // Prepare email parameters
+            const templateParams = {
+                client_name: formData.get('name') || 'No especificado',
+                client_email: formData.get('email') || 'No especificado',
+                message: formData.get('message') || 'Sin mensaje',
+                to_name: 'Angel Scott',
+                to_email: 'angelscott2004@gmail.com',
+                form_type: 'Contacto General'
+            };
+            
+            // Send email via EmailJS
+            emailjs.send('service_mqv1r38', 'template_magna_contact', templateParams)
+                .then(function(response) {
+                    console.log('Contact form SUCCESS!', response.status, response.text);
+                    
+                    showFormMessage('¡Mensaje enviado exitosamente! Te contactaremos pronto.', 'success');
+                    contactForm.reset();
+                    
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    
+                }, function(error) {
+                    console.log('Contact form FAILED...', error);
+                    
+                    showFormMessage('Error al enviar el mensaje. Por favor intenta de nuevo o contáctanos por WhatsApp al (809) 358-8113.', 'error');
+                    
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
                 });
-                
-                showFormMessage('¡Mensaje enviado exitosamente! Te contactaremos pronto.', 'success');
-                contactForm.reset();
-                
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 2000);
         });
     }
 

@@ -5,8 +5,8 @@
 
 /* Hero Section */
 .about-hero {
-    min-height: 100vh;
-    padding: 12rem 0 6rem;
+    min-height: 80vh;
+    padding: 8rem 0 4rem;
     display: flex;
     align-items: center;
     background: var(--background);
@@ -25,7 +25,7 @@
 
 /* Mission Section */
 .mission {
-    padding: 8rem 0;
+    padding: 6rem 0;
 }
 
 .mission-content {
@@ -66,7 +66,7 @@
 
 /* Values Section */
 .values {
-    padding: 8rem 0;
+    padding: 6rem 0;
     background: var(--light-background);
 }
 
@@ -99,7 +99,7 @@
 
 /* Team Section */
 .team {
-    padding: 8rem 0;
+    padding: 6rem 0;
 }
 
 .team h2 {

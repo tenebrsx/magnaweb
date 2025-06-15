@@ -5,8 +5,8 @@
 
 /* Hero Section */
 .work-hero {
-    min-height: 100vh;
-    padding: 12rem 0 6rem;
+    min-height: 80vh;
+    padding: 8rem 0 4rem;
     display: flex;
     align-items: center;
     background: var(--background);
@@ -25,7 +25,7 @@
 
 /* Featured Work Section */
 .featured-work {
-    padding: 8rem 0;
+    padding: 6rem 0;
 }
 
 .work-grid {
@@ -102,7 +102,7 @@
 
 /* Services Overview */
 .services-overview {
-    padding: 8rem 0;
+    padding: 6rem 0;
     background: var(--light-background);
 }
 
@@ -154,7 +154,7 @@
 
 /* Process Overview */
 .process-overview {
-    padding: 8rem 0;
+    padding: 6rem 0;
 }
 
 .process-content {
@@ -200,7 +200,7 @@
 
 /* Start Project Section */
 .start-project {
-    padding: 8rem 0;
+    padding: 6rem 0;
     background: var(--light-background);
     text-align: center;
 }
