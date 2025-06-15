@@ -113,12 +113,27 @@ document.addEventListener('DOMContentLoaded', function() {
     function initStatsAnimation() {
         const statNumbers = document.querySelectorAll('.stat-number[data-value]');
         console.log('📊 Found stat numbers:', statNumbers.length);
+        console.log('📊 Stat elements details:', Array.from(statNumbers).map(el => ({
+            element: el,
+            dataValue: el.getAttribute('data-value'),
+            currentText: el.textContent,
+            parentElement: el.parentElement
+        })));
         
         if (statNumbers.length === 0) {
             console.log('No stat numbers found, retrying in 500ms...');
             setTimeout(initStatsAnimation, 500);
             return;
         }
+        
+        // Test simple text change first
+        console.log('🧪 Testing simple text change...');
+        statNumbers.forEach((stat, index) => {
+            setTimeout(() => {
+                stat.textContent = 'TEST ' + index;
+                console.log('Changed text to:', stat.textContent);
+            }, 500 + (index * 200));
+        });
         
         statNumbers.forEach((stat, index) => {
             const targetValue = parseFloat(stat.getAttribute('data-value'));
@@ -128,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 console.log(`🚀 Immediate animation test for stat ${index + 1}:`, targetValue);
                 animateStat(stat, targetValue);
-            }, 1000 + (index * 500));
+            }, 2000 + (index * 500));
             
             // Also create ScrollTrigger as backup
             ScrollTrigger.create({
@@ -149,7 +164,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function animateStat(stat, targetValue) {
         console.log('🎬 Starting animation for:', targetValue, 'Current text:', stat.textContent);
         
-        gsap.fromTo({ value: 0 }, {
+        // Create a counter object to animate
+        const counter = { value: 0 };
+        
+        gsap.to(counter, {
             value: targetValue,
             duration: 2.5,
             ease: "power2.out",
@@ -157,7 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('🎭 Animation started for:', targetValue);
             },
             onUpdate: function() {
-                const currentValue = this.targets()[0].value;
+                const currentValue = counter.value;
+                console.log('🔄 Updating value:', currentValue, ' for target:', targetValue);
                 
                 if (targetValue === 24) {
                     stat.textContent = Math.round(currentValue) + '/7';
