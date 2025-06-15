@@ -12,21 +12,39 @@ const navbar = document.querySelector('.navbar');
 const body = document.body;
 
 if (mobileMenu && navLinks) {
-    // Add both click and touchstart for better mobile compatibility
-    const toggleMenu = () => {
-        console.log('Mobile menu clicked'); // Debug log
-        navLinks.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        navbar.classList.toggle('menu-open');
-        body.classList.toggle('menu-open');
+    // Prevent event bubbling and add better touch handling
+    const toggleMenu = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Mobile menu toggle clicked'); // Debug log
+        
+        const isActive = navLinks.classList.contains('active');
+        
+        if (!isActive) {
+            // Opening menu
+            navLinks.classList.add('active');
+            mobileMenu.classList.add('active');
+            navbar.classList.add('menu-open');
+            body.classList.add('menu-open');
+            console.log('Menu opened');
+        } else {
+            // Closing menu
+            navLinks.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            navbar.classList.remove('menu-open');
+            body.classList.remove('menu-open');
+            console.log('Menu closed');
+        }
     };
     
-    mobileMenu.addEventListener('click', toggleMenu);
-    mobileMenu.addEventListener('touchstart', toggleMenu);
+    // Use both click and touchend for better mobile compatibility
+    mobileMenu.addEventListener('click', toggleMenu, { passive: false });
+    mobileMenu.addEventListener('touchend', toggleMenu, { passive: false });
 
     // Close menu when clicking on a link
     navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            console.log('Nav link clicked, closing menu');
             navLinks.classList.remove('active');
             mobileMenu.classList.remove('active');
             navbar.classList.remove('menu-open');
@@ -36,7 +54,8 @@ if (mobileMenu && navLinks) {
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
+        if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+            console.log('Clicked outside, closing menu');
             navLinks.classList.remove('active');
             mobileMenu.classList.remove('active');
             navbar.classList.remove('menu-open');
