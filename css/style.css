@@ -124,7 +124,7 @@ p {
     isolation: isolate !important;
     overflow: hidden;
     gap: 0.5rem;
-    padding-top: 25vh;
+    padding-top: 15vh;
 }
 
 .nav-links.active {
@@ -593,7 +593,7 @@ a.cta-button:visited {
         isolation: isolate !important;
         overflow: hidden;
         gap: 0.5rem;
-        padding-top: 25vh;
+        padding-top: 15vh;
     }
 
     .nav-links.active {

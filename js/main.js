@@ -5,6 +5,15 @@ gsap.registerPlugin(ScrollTrigger);
 console.log('GSAP loaded:', typeof gsap !== 'undefined');
 console.log('ScrollTrigger loaded:', typeof ScrollTrigger !== 'undefined');
 
+// Test GSAP immediately
+if (typeof gsap !== 'undefined') {
+    console.log('✅ GSAP is available');
+    // Simple test animation
+    gsap.set('body', { opacity: 1 });
+} else {
+    console.error('❌ GSAP is not loaded!');
+}
+
 // Wrap everything in DOMContentLoaded to ensure DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 DOM loaded, initializing Magna Web app...');
@@ -111,17 +120,23 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        statNumbers.forEach(stat => {
+        statNumbers.forEach((stat, index) => {
             const targetValue = parseFloat(stat.getAttribute('data-value'));
-            console.log('Setting up animation for stat:', targetValue);
+            console.log(`Setting up animation for stat ${index + 1}:`, targetValue, 'Element:', stat);
             
-            // Create ScrollTrigger animation
+            // Try immediate animation first (for testing)
+            setTimeout(() => {
+                console.log(`🚀 Immediate animation test for stat ${index + 1}:`, targetValue);
+                animateStat(stat, targetValue);
+            }, 1000 + (index * 500));
+            
+            // Also create ScrollTrigger as backup
             ScrollTrigger.create({
-                trigger: stat,
-                start: "top 85%",
+                trigger: stat.parentElement,
+                start: "top 90%",
                 once: true,
                 onEnter: () => {
-                    console.log('🎯 Animating stat:', targetValue);
+                    console.log('🎯 ScrollTrigger fired for stat:', targetValue);
                     animateStat(stat, targetValue);
                 }
             });
@@ -132,10 +147,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Animation function
     function animateStat(stat, targetValue) {
+        console.log('🎬 Starting animation for:', targetValue, 'Current text:', stat.textContent);
+        
         gsap.fromTo({ value: 0 }, {
             value: targetValue,
             duration: 2.5,
             ease: "power2.out",
+            onStart: () => {
+                console.log('🎭 Animation started for:', targetValue);
+            },
             onUpdate: function() {
                 const currentValue = this.targets()[0].value;
                 
