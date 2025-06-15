@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================================
     // SCROLL ANIMATIONS
     // ========================================
-    const fadeUpElements = document.querySelectorAll('.large-text, .stat-text, .service-card, .work-item');
+    const fadeUpElements = document.querySelectorAll('.large-text, .stat-text, .service-card, .work-item, .stat');
     console.log('📏 Found fade-up elements:', fadeUpElements.length);
 
     fadeUpElements.forEach(element => {

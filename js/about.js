@@ -14,7 +14,6 @@ gsap.from(heroLines, {
 
 // Mission Section Animation
 const missionContent = document.querySelector('.mission-content');
-const stats = document.querySelectorAll('.stat');
 
 gsap.from(missionContent, {
     opacity: 0,
@@ -27,19 +26,7 @@ gsap.from(missionContent, {
     }
 });
 
-stats.forEach((stat, index) => {
-    gsap.from(stat, {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        delay: index * 0.2,
-        scrollTrigger: {
-            trigger: stat,
-            start: "top bottom-=100",
-            toggleActions: "play none none reverse"
-        }
-    });
-});
+// Stats animations are now handled exclusively in main.js to avoid conflicts
 
 // Values Animation
 const valueCards = document.querySelectorAll('.value-card');
