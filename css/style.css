@@ -83,9 +83,10 @@ p {
     left: 0;
     right: 0;
     padding: 2rem 0;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     z-index: 1000;
-    mix-blend-mode: difference;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .navbar .container {
@@ -97,9 +98,8 @@ p {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--secondary-color);
+    color: #000000;
     text-decoration: none;
-    mix-blend-mode: difference;
 }
 
 .nav-links {
@@ -107,19 +107,17 @@ p {
     align-items: center;
     gap: 2rem;
     font-size: 1rem;
-    mix-blend-mode: normal;
 }
 
 .nav-links a {
-    color: var(--text-color);
+    color: #000000;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
-    mix-blend-mode: normal;
 }
 
 .nav-links a:hover {
-    color: var(--accent-color);
+    color: #666666;
 }
 
 /* Mobile Navigation Styles */
@@ -177,14 +175,12 @@ p {
 
 .cta-button {
     padding: 0.75rem 1.5rem;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid #000000;
     border-radius: 2rem;
     transition: all 0.3s ease;
     background: transparent;
-    color: var(--secondary-color);
+    color: #000000;
     text-decoration: none;
-    mix-blend-mode: normal;
-    isolation: isolate;
 }
 
 .cta-button:hover,
@@ -643,7 +639,7 @@ a.cta-button:visited {
         display: block;
         width: 25px;
         height: 3px;
-        background: var(--secondary-color);
+        background: #000000;
         margin: 5px 0;
         transition: all 0.3s ease;
         border-radius: 2px;
@@ -655,17 +651,7 @@ a.cta-button:visited {
         background: #000000;
     }
 
-    /* Completely isolate navbar when mobile menu is active */
-    .navbar:has(.nav-links.active) {
-        mix-blend-mode: normal !important;
-        isolation: isolate !important;
-    }
-
-    /* Fallback for older browsers */
-    .navbar.menu-open {
-        mix-blend-mode: normal !important;
-        isolation: isolate !important;
-    }
+    /* Navbar is now using normal background, no mix-blend-mode issues */
 
     .mobile-menu.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
