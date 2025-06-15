@@ -103,20 +103,87 @@ p {
 }
 
 .nav-links {
-    display: flex;
-    gap: 3rem;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #FFFFFF;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    font-size: 1.1rem;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    mix-blend-mode: normal !important;
+    isolation: isolate !important;
+    overflow: hidden;
+    gap: 0.5rem;
+}
+
+.nav-links.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
 }
 
 .nav-links a {
-    color: var(--secondary-color);
+    color: #000000;
+    margin: 0.5rem 0;
+    padding: 0.8rem 1.5rem;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
     text-decoration: none;
     font-weight: 500;
-    transition: opacity 0.3s ease;
 }
 
 .nav-links a:hover {
-    opacity: 0.7;
+    background: var(--accent-color);
+    color: var(--secondary-color);
+}
+
+/* Mobile navigation CTA button styling for white background */
+.nav-links .cta-button {
+    border: 1px solid #000000;
+    color: #000000;
+    margin-top: 0.5rem;
+}
+
+.nav-links .cta-button:hover,
+.nav-links .cta-button:focus,
+.nav-links .cta-button:active,
+.nav-links a.cta-button:hover,
+.nav-links a.cta-button:focus,
+.nav-links a.cta-button:active {
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    border-color: var(--accent-color);
+}
+
+/* WhatsApp Button in Mobile Menu */
+.nav-links .whatsapp-mobile {
+    background: #25D366;
+    color: white !important;
+    border: 1px solid #25D366;
+    border-radius: 1.5rem;
+    padding: 0.8rem 1.2rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links .whatsapp-mobile:hover {
+    background: #1FAD54;
+    border-color: #1FAD54;
 }
 
 .cta-button {
@@ -516,7 +583,7 @@ a.cta-button:visited {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         z-index: 9999;
         opacity: 0;
         visibility: hidden;
@@ -524,6 +591,7 @@ a.cta-button:visited {
         mix-blend-mode: normal !important;
         isolation: isolate !important;
         overflow: hidden;
+        gap: 0.5rem;
     }
 
     .nav-links.active {
@@ -534,11 +602,12 @@ a.cta-button:visited {
 
     .nav-links a {
         color: #000000;
-        margin: 1rem 0;
-        padding: 1rem 2rem;
-        border-radius: 2rem;
+        margin: 0.5rem 0;
+        padding: 0.8rem 1.5rem;
+        border-radius: 1.5rem;
         transition: all 0.3s ease;
         text-decoration: none;
+        font-weight: 500;
     }
 
     .nav-links a:hover {
@@ -548,8 +617,9 @@ a.cta-button:visited {
 
     /* Mobile navigation CTA button styling for white background */
     .nav-links .cta-button {
-        border-color: #000000;
+        border: 1px solid #000000;
         color: #000000;
+        margin-top: 0.5rem;
     }
 
     .nav-links .cta-button:hover,
@@ -558,20 +628,25 @@ a.cta-button:visited {
     .nav-links a.cta-button:hover,
     .nav-links a.cta-button:focus,
     .nav-links a.cta-button:active {
-        opacity: 0.7;
-        text-decoration: none;
+        background: var(--accent-color);
+        color: var(--secondary-color);
+        border-color: var(--accent-color);
     }
 
     /* WhatsApp Button in Mobile Menu */
     .nav-links .whatsapp-mobile {
         background: #25D366;
         color: white !important;
-        border: 2px solid #25D366;
-        border-radius: 2rem;
-        padding: 1rem 2rem;
+        border: 1px solid #25D366;
+        border-radius: 1.5rem;
+        padding: 0.8rem 1.2rem;
         margin-top: 1rem;
         text-decoration: none;
         transition: all 0.3s ease;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     .nav-links .whatsapp-mobile:hover {

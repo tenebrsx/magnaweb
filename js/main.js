@@ -111,6 +111,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
+        // Log each stat element for debugging
+        statNumbers.forEach((stat, index) => {
+            console.log(`Stat ${index}:`, stat, 'data-value:', stat.getAttribute('data-value'));
+        });
+        
         statNumbers.forEach(stat => {
             const targetValue = parseFloat(stat.getAttribute('data-value'));
             console.log('Setting up animation for stat:', targetValue);
@@ -122,39 +127,81 @@ document.addEventListener('DOMContentLoaded', function() {
                 stat.textContent = '0%';
             }
             
+            // Create both ScrollTrigger and fallback animation
             ScrollTrigger.create({
                 trigger: stat,
                 start: "top 80%",
                 once: true,
                 onEnter: () => {
-                    console.log('🎯 Animating stat:', targetValue);
-                    
-                    gsap.fromTo({ value: 0 }, {
-                        value: targetValue,
-                        duration: 2.5,
-                        ease: "power2.out",
-                        onUpdate: function() {
-                            const currentValue = this.targets()[0].value;
-                            
-                            if (targetValue === 24) {
-                                stat.textContent = Math.round(currentValue) + '/7';
-                            } else if (targetValue === 78.3) {
-                                stat.textContent = currentValue.toFixed(1) + '%';
-                            } else {
-                                stat.textContent = Math.round(currentValue) + '%';
-                            }
-                        },
-                        onComplete: () => console.log('✅ Stat animation completed:', targetValue)
-                    });
+                    console.log('🎯 ScrollTrigger activated for stat:', targetValue);
+                    animateStat(stat, targetValue);
                 }
             });
+            
+            // Also create a fallback animation that triggers after a delay
+            setTimeout(() => {
+                if (stat.textContent === '0%' || stat.textContent === '0/7') {
+                    console.log('🔄 Fallback animation triggered for stat:', targetValue);
+                    animateStat(stat, targetValue);
+                }
+            }, 3000);
         });
 
         console.log('✅ Stats animation system initialized');
     }
 
+    // Separate animation function for reusability
+    function animateStat(stat, targetValue) {
+        gsap.fromTo({ value: 0 }, {
+            value: targetValue,
+            duration: 2.5,
+            ease: "power2.out",
+            onUpdate: function() {
+                const currentValue = this.targets()[0].value;
+                
+                if (targetValue === 24) {
+                    stat.textContent = Math.round(currentValue) + '/7';
+                } else if (targetValue === 78.3) {
+                    stat.textContent = currentValue.toFixed(1) + '%';
+                } else {
+                    stat.textContent = Math.round(currentValue) + '%';
+                }
+            },
+            onComplete: () => {
+                console.log('✅ Animation completed for stat:', targetValue);
+                // Ensure final value is set correctly
+                if (targetValue === 24) {
+                    stat.textContent = '24/7';
+                } else if (targetValue === 78.3) {
+                    stat.textContent = '78.3%';
+                } else {
+                    stat.textContent = Math.round(targetValue) + '%';
+                }
+            }
+        });
+    }
+
     // Initialize stats animation
     initStatsAnimation();
+
+    // Refresh ScrollTrigger after a delay to ensure all elements are loaded
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+        console.log('🔄 ScrollTrigger refreshed');
+    }, 1000);
+
+    // Manual trigger for testing (remove in production)
+    setTimeout(() => {
+        console.log('🧪 Manual stats animation test');
+        const statNumbers = document.querySelectorAll('.stat-number[data-value]');
+        statNumbers.forEach(stat => {
+            if (stat.textContent === '0%' || stat.textContent === '0/7') {
+                const targetValue = parseFloat(stat.getAttribute('data-value'));
+                console.log('🎯 Manually triggering animation for:', targetValue);
+                animateStat(stat, targetValue);
+            }
+        });
+    }, 5000);
 
     // ========================================
     // SCROLL ANIMATIONS
