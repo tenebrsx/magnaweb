@@ -246,6 +246,12 @@
 @media (max-width: 768px) {
     .work-hero {
         padding: 8rem 0 4rem;
+        min-height: 80vh;
+    }
+
+    .work-hero h1 {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+        line-height: 1.1;
     }
 
     .services-grid {

@@ -646,12 +646,12 @@ a.cta-button:visited {
     }
 
     h1 {
-        font-size: clamp(2rem, 8vw, 3.5rem);
+        font-size: clamp(2.5rem, 10vw, 4rem);
         line-height: 1.1;
     }
 
     h2 {
-        font-size: clamp(1.5rem, 6vw, 2.5rem);
+        font-size: clamp(2rem, 8vw, 3rem);
     }
 
     /* Services Section Mobile */
@@ -675,7 +675,7 @@ a.cta-button:visited {
     }
 
     .large-text {
-        font-size: clamp(1.25rem, 5vw, 1.8rem);
+        font-size: clamp(1.4rem, 6vw, 2rem);
         margin-bottom: 2rem;
     }
 
