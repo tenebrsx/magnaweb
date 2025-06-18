@@ -182,6 +182,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     stat.textContent = Math.round(currentValue) + '/7';
                 } else if (targetValue === 78.3) {
                     stat.textContent = currentValue.toFixed(1) + '%';
+                } else if (targetValue === 48) {
+                    stat.textContent = Math.round(currentValue) + 'H';
                 } else {
                     stat.textContent = Math.round(currentValue) + '%';
                 }
@@ -193,6 +195,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     stat.textContent = '24/7';
                 } else if (targetValue === 78.3) {
                     stat.textContent = '78.3%';
+                } else if (targetValue === 48) {
+                    stat.textContent = '48H';
                 } else {
                     stat.textContent = Math.round(targetValue) + '%';
                 }
