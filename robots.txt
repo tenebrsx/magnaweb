@@ -1,15 +1,35 @@
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://www.magnaweb.net/sitemap.xml
 
-# Block access to admin areas (if any)
+# Block access to admin areas and development files
 Disallow: /admin/
 Disallow: /.git/
 Disallow: /node_modules/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
 
-# Allow all images and CSS
+# Allow all important directories for SEO
 Allow: /images/
 Allow: /css/
-Allow: /js/ 
+Allow: /js/
+Allow: /blog/
+
+# Block specific file types that shouldn't be indexed
+Disallow: *.pdf$
+Disallow: *.doc$
+Disallow: /*.json$
+
+# Google-specific directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing-specific directives  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1 

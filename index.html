@@ -141,35 +141,117 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": ["Organization", "LocalBusiness"],
         "name": "Magna Web",
+        "alternateName": "MW",
         "url": "https://www.magnaweb.net",
         "logo": "https://www.magnaweb.net/images/favicons/android-chrome-512x512.png",
-        "description": "Agencia digital creativa especializada en desarrollo web, SEO y marketing digital en República Dominicana",
+        "image": [
+            "https://www.magnaweb.net/images/favicons/android-chrome-512x512.png",
+            "https://www.magnaweb.net/images/magna-web-logo.png"
+        ],
+        "description": "Agencia digital líder en República Dominicana especializada en desarrollo web, SEO y marketing digital. Websites profesionales en 72 horas para negocios dominicanos.",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Santo Domingo",
+            "addressLocality": "Santo Domingo",
+            "addressRegion": "Distrito Nacional",
             "addressCountry": "DO",
-            "addressRegion": "Distrito Nacional"
+            "addressCountryCode": "DO"
         },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "customer service",
-            "availableLanguage": "Spanish"
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "18.4861",
+            "longitude": "-69.9312"
         },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+1-809-358-8113",
+                "contactType": "customer service",
+                "areaServed": "DO",
+                "availableLanguage": ["Spanish", "es"],
+                "contactOption": "TollFree"
+            },
+            {
+                "@type": "ContactPoint",
+                "email": "hola@magnaweb.do",
+                "contactType": "customer service",
+                "areaServed": "DO",
+                "availableLanguage": "Spanish"
+            }
+        ],
+        "telephone": "+1-809-358-8113",
+        "email": "hola@magnaweb.do",
         "sameAs": [
             "https://www.instagram.com/magna.web/",
             "https://www.linkedin.com/company/magna-web/"
         ],
-        "areaServed": {
-            "@type": "Country",
-            "name": "República Dominicana"
-        },
+        "areaServed": [
+            {
+                "@type": "Country",
+                "name": "República Dominicana"
+            },
+            {
+                "@type": "City",
+                "name": "Santo Domingo"
+            },
+            {
+                "@type": "State",
+                "name": "Distrito Nacional"
+            }
+        ],
         "serviceType": [
             "Desarrollo Web",
             "SEO",
             "Marketing Digital",
             "Diseño Web",
-            "Identidad de Marca"
+            "Identidad de Marca",
+            "E-commerce"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de Desarrollo Web",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Desarrollo Web",
+                        "description": "Páginas web profesionales que convierten visitantes en clientes"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "SEO y Marketing Digital",
+                        "description": "Mejora tu visibilidad y atrae más clientes locales"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "E-commerce",
+                        "description": "Tiendas online profesionales con integración de pagos locales"
+                    }
+                }
+            ]
+        },
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+        "currenciesAccepted": "DOP",
+        "priceRange": "$$",
+        "foundingDate": "2023",
+        "slogan": "Transformando negocios dominicanos a través de soluciones web creativas",
+        "knowsAbout": [
+            "Desarrollo Web",
+            "SEO",
+            "Marketing Digital",
+            "República Dominicana",
+            "E-commerce",
+            "Diseño Web"
         ]
     }
     </script>
@@ -329,7 +411,7 @@
             <div class="work-grid-clean">
                 <div class="work-item-clean">
                     <a href="https://www.estudio56puntacana.com/" target="_blank" rel="noopener noreferrer" class="work-image-placeholder" data-project="estudio56">
-                        <img src="images/projects/estudio56.png" alt="Estudio 56 Punta Cana" />
+                        <img src="images/projects/estudio56.png" alt="Estudio 56 Punta Cana - Desarrollo web para restaurante turístico República Dominicana" />
                     </a>
                     <div class="work-info">
                         <span class="work-category">Restaurante, Turismo</span>
@@ -341,7 +423,7 @@
 
                 <div class="work-item-clean">
                     <a href="https://strasma360.com/index.htm" target="_blank" rel="noopener noreferrer" class="work-image-placeholder" data-project="strasma360">
-                        <img src="images/projects/strasma360.png" alt="Strasma 360" />
+                        <img src="images/projects/strasma360.png" alt="Strasma 360 - Sitio web para consultora recursos humanos República Dominicana" />
                     </a>
                     <div class="work-info">
                         <span class="work-category">Recursos Humanos, Consultoría</span>
@@ -353,7 +435,7 @@
 
                 <div class="work-item-clean">
                     <a href="https://calificatuprofe.netlify.app/" target="_blank" rel="noopener noreferrer" class="work-image-placeholder" data-project="calificatuprofe">
-                        <img src="images/projects/calificatuprofe.png" alt="CalificaTuProfe" />
+                        <img src="images/projects/calificatuprofe.png" alt="CalificaTuProfe - Plataforma educativa web República Dominicana profesores estudiantes" />
                     </a>
                     <div class="work-info">
                         <span class="work-category">Educación, Plataforma Digital</span>
@@ -365,7 +447,7 @@
 
                 <div class="work-item-clean">
                     <a href="https://transcendent-cheesecake-d528e3.netlify.app/" target="_blank" rel="noopener noreferrer" class="work-image-placeholder" data-project="noticiasdm">
-                        <img src="images/projects/noticiasdm.png" alt="NoticiasDM" />
+                        <img src="images/projects/noticiasdm.png" alt="NoticiasDM - Portal noticias dominicano desarrollo web medios digitales" />
                     </a>
                     <div class="work-info">
                         <span class="work-category">Medios, Periodismo Digital</span>
