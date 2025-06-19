@@ -22,9 +22,6 @@ body {
     color: var(--text-color);
     background: var(--background);
     overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Fix mobile overflow issues */
@@ -38,7 +35,7 @@ html, body {
 }
 
 html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; - Disabled to prevent conflicts with GSAP */
 }
 
 .container {

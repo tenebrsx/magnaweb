@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize EmailJS 
     emailjs.init("6LVL8JCu6dGzprKMP"); // EmailJS public key
     
-    const projectForm = document.getElementById('projectForm');
-    
+const projectForm = document.getElementById('projectForm');
+
     if (projectForm) {
         projectForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    e.preventDefault();
             
             // Validate form
             if (!validateProjectForm(projectForm)) {
@@ -48,16 +48,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(projectForm);
             const submitButton = projectForm.querySelector('.submit-button');
             const originalText = submitButton.textContent;
-            
-            // Show loading state
+
+    // Show loading state
             submitButton.textContent = 'Enviando solicitud...';
-            submitButton.disabled = true;
-            
-            // Get selected project types
-            const projectTypes = [];
+    submitButton.disabled = true;
+
+    // Get selected project types
+    const projectTypes = [];
             projectForm.querySelectorAll('input[name="projectType"]:checked').forEach(checkbox => {
-                projectTypes.push(checkbox.value);
-            });
+        projectTypes.push(checkbox.value);
+    });
             
             // Prepare comprehensive email parameters
             const templateParams = {
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 to_email: 'angelscott2004@gmail.com',
                 form_type: 'Solicitud de Proyecto Detallada'
             };
-            
+
             // Send email via EmailJS
             emailjs.send('service_mqv1r38', 'template_magna_project', templateParams)
                 .then(function(response) {
@@ -98,11 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Reset button
                     submitButton.textContent = originalText;
-                    submitButton.disabled = false;
+        submitButton.disabled = false;
                 });
-        });
+});
     }
-    
+
     // Project Form Validation
     function validateProjectForm(form) {
         const requiredInputs = form.querySelectorAll('input[required], select[required]');
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-        
+
         // Check if at least one project type is selected
         const projectTypeChecked = form.querySelector('input[name="projectType"]:checked');
         const projectTypeGroup = form.querySelector('.checkbox-group');
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Auto-hide success messages after 8 seconds (longer for project form)
             if (type === 'success') {
-                setTimeout(() => {
+    setTimeout(() => {
                     messageDiv.style.opacity = '0';
                     setTimeout(() => messageDiv.remove(), 300);
                 }, 8000);
