@@ -2,10 +2,10 @@ Contact: mailto:hola@magnaweb.do
 Contact: https://wa.me/18093588113
 Expires: 2025-12-31T23:59:59.000Z
 Preferred-Languages: es, en
-Canonical: https://magnaweb.netlify.app/.well-known/security.txt
+Canonical: https://www.magnaweb.net/.well-known/security.txt
 
 # Security Policy
-Policy: https://magnaweb.netlify.app/security-policy
+Policy: https://www.magnaweb.net/security-policy
 
 # This is a static website hosted on Netlify
 # For security issues, please contact us directly 
