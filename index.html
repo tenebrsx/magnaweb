@@ -99,6 +99,13 @@
             font-weight: bold;
             margin-bottom: 1rem;
         }
+        
+        /* Hide third stat on mobile to prevent cutoff */
+        @media (max-width: 768px) {
+            .stats-grid .stat-item:nth-child(3) {
+                display: none;
+            }
+        }
     </style>
     
     <!-- Google Analytics 4 -->
@@ -575,6 +582,6 @@
 
     <!-- EmailJS CDN -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="js/main.js?v=1750358421&simpleicons=text"></script>
+    <script src="js/main.js?v=1750358792&mobile=stats-fix"></script>
 </body>
 </html>
