@@ -47,7 +47,7 @@
     <link rel="preload" href="css/style.css" as="style">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/style.css?v=1750354424&fontawesome=6.7.2">
+    <link rel="stylesheet" href="css/style.css?v=1750358156&iconfix=important">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -83,35 +83,68 @@
              font-family: Arial, sans-serif;
          }
         
-        /* Check icon - Green checkmark */
-        .icon-check {
-            color: #ff3d00;
-            font-size: 16px;
-        }
-        .icon-check::before {
-            content: "✓";
-            font-weight: bold;
-        }
+                 /* Check icon - Green checkmark */
+         .icon-check {
+             color: #ff3d00 !important;
+             font-size: 16px !important;
+             width: 16px;
+             height: 16px;
+             display: inline-flex !important;
+             align-items: center;
+             justify-content: center;
+         }
+         .icon-check::before {
+             content: "✓";
+             font-weight: bold;
+             font-family: Arial, sans-serif;
+         }
         
-        /* Shield icon */
-        .icon-shield::before {
-            content: "🛡️";
-        }
+                 /* Shield icon */
+         .icon-shield {
+             font-size: 2rem !important;
+             color: var(--accent-color) !important;
+         }
+         .icon-shield::before {
+             content: "🛡️";
+             font-family: Arial, sans-serif;
+         }
+         
+         /* Clock icon */
+         .icon-clock {
+             font-size: 2rem !important;
+             color: var(--accent-color) !important;
+         }
+         .icon-clock::before {
+             content: "🕐";
+             font-family: Arial, sans-serif;
+         }
+         
+         /* Money/Payment icon */
+         .icon-payment {
+             font-size: 2rem !important;
+             color: var(--accent-color) !important;
+         }
+         .icon-payment::before {
+             content: "💳";
+             font-family: Arial, sans-serif;
+         }
         
-        /* Clock icon */
-        .icon-clock::before {
-            content: "🕐";
-        }
-        
-        /* Money/Payment icon */
-        .icon-payment::before {
-            content: "💳";
-        }
-        
-        /* Fallback Font Awesome with better detection */
-        .fa-fallback {
-            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 5 Free', 'Font Awesome 5 Brands', sans-serif;
-        }
+                 /* Override any Font Awesome conflicts */
+         .icon:not([class*="fa-"]) {
+             font-family: Arial, sans-serif !important;
+         }
+         
+         /* Ensure our custom icons take precedence */
+         .pricing-features .icon,
+         .info-card .icon,
+         .whatsapp-button .icon {
+             font-family: Arial, sans-serif !important;
+         }
+         
+         /* Fallback Font Awesome with better detection */
+         .fa-fallback {
+             font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 5 Free', 'Font Awesome 5 Brands', sans-serif;
+         }
     </style>
     
     <!-- Font Awesome - Keep as fallback but load more reliably -->
@@ -592,6 +625,6 @@
 
     <!-- EmailJS CDN -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="js/main.js?v=1750357423&icons=custom"></script>
+    <script src="js/main.js?v=1750358156&iconfix=important"></script>
 </body>
 </html>
