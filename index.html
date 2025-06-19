@@ -52,8 +52,33 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome - Testing jsDelivr CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" crossorigin="anonymous">
+    <!-- Font Awesome - Official CDN with fallback -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Font Awesome Fallback -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if Font Awesome loaded
+            const testIcon = document.createElement('i');
+            testIcon.className = 'fas fa-home';
+            testIcon.style.display = 'none';
+            document.body.appendChild(testIcon);
+            
+            const computedStyle = window.getComputedStyle(testIcon, '::before');
+            const fontFamily = computedStyle.getPropertyValue('font-family');
+            
+            if (!fontFamily.includes('Font Awesome')) {
+                console.log('Font Awesome failed to load, loading fallback...');
+                const fallbackLink = document.createElement('link');
+                fallbackLink.rel = 'stylesheet';
+                fallbackLink.href = 'https://use.fontawesome.com/releases/v6.7.2/css/all.css';
+                fallbackLink.crossOrigin = 'anonymous';
+                document.head.appendChild(fallbackLink);
+            }
+            
+            document.body.removeChild(testIcon);
+        });
+    </script>
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -529,6 +554,6 @@
 
     <!-- EmailJS CDN -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="js/main.js?v=1750356242&testfix=removed"></script>
+    <script src="js/main.js?v=1750356864&fontawesome=fallback"></script>
 </body>
 </html>
