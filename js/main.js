@@ -126,24 +126,13 @@ const lines = splitText.querySelectorAll('.line');
             return;
         }
         
-        // Test simple text change first
-        console.log('🧪 Testing simple text change...');
-        statNumbers.forEach((stat, index) => {
-            setTimeout(() => {
-                stat.textContent = 'TEST ' + index;
-                console.log('Changed text to:', stat.textContent);
-            }, 500 + (index * 200));
-        });
+
         
         statNumbers.forEach((stat, index) => {
             const targetValue = parseFloat(stat.getAttribute('data-value'));
             console.log(`Setting up animation for stat ${index + 1}:`, targetValue, 'Element:', stat);
             
-            // Try immediate animation first (for testing)
-            setTimeout(() => {
-                console.log(`🚀 Immediate animation test for stat ${index + 1}:`, targetValue);
-                animateStat(stat, targetValue);
-            }, 2000 + (index * 500));
+
             
             // Also create ScrollTrigger as backup
             ScrollTrigger.create({
