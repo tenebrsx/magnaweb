@@ -12,12 +12,12 @@
   # Cache Control for static assets
   Cache-Control: public, max-age=31536000
 
-# Specific cache rules for different file types
+# Specific cache rules for different file types - AGGRESSIVE CACHE BUSTING
 /*.css
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=0, must-revalidate, no-cache
   
 /*.js
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=0, must-revalidate, no-cache
   
 /*.png
   Cache-Control: public, max-age=31536000
@@ -37,6 +37,6 @@
 /*.webp
   Cache-Control: public, max-age=31536000
 
-# HTML files - shorter cache
+# HTML files - NO CACHE
 /*.html
-  Cache-Control: public, max-age=86400 
+  Cache-Control: public, max-age=0, must-revalidate, no-cache 
