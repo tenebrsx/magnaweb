@@ -1,0 +1,20 @@
+# Security redirects - block common attack patterns
+/.env                   /404.html    404
+/.git/*                 /404.html    404
+/.htaccess              /404.html    404
+/wp-admin/*             /404.html    404
+/wp-login.php           /404.html    404
+/xmlrpc.php             /404.html    404
+/phpmyadmin/*           /404.html    404
+/admin/*                /404.html    404
+/.well-known/security.txt /404.html  404
+
+# Redirect common typos and variations
+/magna-web              /            301
+/magnaweb               /            301
+
+# Form submission redirect
+/gracias.html           /gracias     200
+
+# Fallback for all other routes
+/*                      /index.html  200 

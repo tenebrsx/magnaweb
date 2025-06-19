@@ -3,16 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
     <title>Magna Web | Agencia Digital Creativa República Dominicana</title>
-    <meta name="description" content="Transformamos negocios dominicanos a través de soluciones web creativas y experiencias digitales que generan impacto.">
+    <meta name="description" content="🚀 Agencia digital líder en República Dominicana. Websites en 72H, SEO local y marketing digital que funciona. Transformamos negocios dominicanos con soluciones web profesionales. ¡Cotiza gratis!">
+    <meta name="keywords" content="agencia digital, desarrollo web, SEO, marketing digital, República Dominicana, diseño web, páginas web, Santo Domingo">
+    <meta name="author" content="Magna Web">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://magnaweb.netlify.app/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://magnaweb.netlify.app/">
+    <meta property="og:title" content="Magna Web | Agencia Digital Creativa República Dominicana">
+    <meta property="og:description" content="Transformamos negocios dominicanos a través de soluciones web creativas y experiencias digitales que generan impacto.">
+    <meta property="og:image" content="https://magnaweb.netlify.app/images/favicons/android-chrome-512x512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:locale" content="es_DO">
+    <meta property="og:site_name" content="Magna Web">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://magnaweb.netlify.app/">
+    <meta property="twitter:title" content="Magna Web | Agencia Digital Creativa República Dominicana">
+    <meta property="twitter:description" content="Transformamos negocios dominicanos a través de soluciones web creativas y experiencias digitales que generan impacto.">
+    <meta property="twitter:image" content="https://magnaweb.netlify.app/images/favicons/android-chrome-512x512.png">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicons/favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#ff3d00">
+    <meta name="msapplication-TileColor" content="#ff3d00">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="css/style.css" as="style">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            page_title: 'Magna Web | Agencia Digital República Dominicana',
+            page_location: window.location.href,
+            custom_map: {'custom_parameter_1': 'page_category'}
+        });
+        
+        // Track form submissions
+        function trackFormSubmission(formName) {
+            gtag('event', 'form_submit', {
+                'event_category': 'engagement',
+                'event_label': formName,
+                'value': 1
+            });
+        }
+        
+        // Track external link clicks
+        function trackExternalLink(url) {
+            gtag('event', 'click', {
+                'event_category': 'external_link',
+                'event_label': url,
+                'value': 1
+            });
+        }
+    </script>
+    
     <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Magna Web",
+        "url": "https://magnaweb.netlify.app",
+        "logo": "https://magnaweb.netlify.app/images/favicons/android-chrome-512x512.png",
+        "description": "Agencia digital creativa especializada en desarrollo web, SEO y marketing digital en República Dominicana",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "DO",
+            "addressRegion": "Distrito Nacional"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "availableLanguage": "Spanish"
+        },
+        "sameAs": [
+            "https://www.instagram.com/magna.web/",
+            "https://www.linkedin.com/company/magna-web/"
+        ],
+        "areaServed": {
+            "@type": "Country",
+            "name": "República Dominicana"
+        },
+        "serviceType": [
+            "Desarrollo Web",
+            "SEO",
+            "Marketing Digital",
+            "Diseño Web",
+            "Identidad de Marca"
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -21,6 +134,7 @@
             <a href="index.html" class="logo">MW.</a>
             <div class="nav-links">
                 <a href="trabajo.html">Trabajo</a>
+                <a href="blog.html">Blog</a>
                 <a href="nosotros.html">Nosotros</a>
                 <a href="iniciar-proyecto.html" class="cta-button">Iniciar Proyecto</a>
             </div>
@@ -134,29 +248,29 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="services" itemscope itemtype="https://schema.org/Service">
         <div class="container">
             <div class="services-grid">
-                <div class="service-card">
+                <article class="service-card" itemscope itemtype="https://schema.org/Service">
                     <span class="service-number">01</span>
-                    <h3>Desarrollo Web</h3>
-                    <p>Páginas web que convierten visitantes en clientes de verdad</p>
-                </div>
-                <div class="service-card">
+                    <h3 itemprop="name">Desarrollo Web</h3>
+                    <p itemprop="description">Páginas web que convierten visitantes en clientes de verdad</p>
+                </article>
+                <article class="service-card" itemscope itemtype="https://schema.org/Service">
                     <span class="service-number">02</span>
-                    <h3>Estrategia Digital</h3>
-                    <p>Planes inteligentes para llegar a tu audiencia ideal</p>
-                </div>
-                <div class="service-card">
+                    <h3 itemprop="name">Estrategia Digital</h3>
+                    <p itemprop="description">Planes inteligentes para llegar a tu audiencia ideal</p>
+                </article>
+                <article class="service-card" itemscope itemtype="https://schema.org/Service">
                     <span class="service-number">03</span>
-                    <h3>Identidad de Marca</h3>
-                    <p>Diseños únicos que hacen que tu negocio se destaque</p>
-                </div>
-                <div class="service-card">
+                    <h3 itemprop="name">Identidad de Marca</h3>
+                    <p itemprop="description">Diseños únicos que hacen que tu negocio se destaque</p>
+                </article>
+                <article class="service-card" itemscope itemtype="https://schema.org/Service">
                     <span class="service-number">04</span>
-                    <h3>SEO y Marketing</h3>
-                    <p>Mejora tu visibilidad y atrae más clientes locales</p>
-                </div>
+                    <h3 itemprop="name">SEO y Marketing</h3>
+                    <p itemprop="description">Mejora tu visibilidad y atrae más clientes locales</p>
+                </article>
             </div>
         </div>
     </section>
@@ -171,9 +285,9 @@
                         <img src="images/projects/estudio56.png" alt="Estudio 56 Punta Cana" />
                     </a>
                     <div class="work-info">
-                        <span class="work-category">Desarrollo Web, E-commerce</span>
+                        <span class="work-category">Restaurante, Turismo</span>
                         <h3>Estudio 56</h3>
-                        <p>Transformación digital completa para uno de los restaurantes más reconocidos de Santo Domingo.</p>
+                        <p>Experiencia gastronómica única en Punta Cana con vista al mar. Desarrollamos su presencia digital para mostrar la belleza del lugar y facilitar reservaciones online.</p>
                         <a href="trabajo.html" class="work-link">Ver Proyecto <span class="arrow">→</span></a>
                     </div>
                 </div>
@@ -183,9 +297,9 @@
                         <img src="images/projects/strasma360.png" alt="Strasma 360" />
                     </a>
                     <div class="work-info">
-                        <span class="work-category">E-commerce, Branding</span>
+                        <span class="work-category">Recursos Humanos, Consultoría</span>
                         <h3>Strasma 360</h3>
-                        <p>Tienda en línea con integración de pagos locales y experiencia de compra personalizada.</p>
+                        <p>Consultora especializada en gestión de recursos humanos y soluciones empresariales. Creamos una plataforma que refleja su expertise y profesionalismo.</p>
                         <a href="trabajo.html" class="work-link">Ver Proyecto <span class="arrow">→</span></a>
                     </div>
                 </div>
@@ -195,9 +309,9 @@
                         <img src="images/projects/calificatuprofe.png" alt="CalificaTuProfe" />
                     </a>
                     <div class="work-info">
-                        <span class="work-category">Desarrollo Web, Marketing Digital</span>
+                        <span class="work-category">Educación, Plataforma Digital</span>
                         <h3>CalificaTuProfe</h3>
-                        <p>Plataforma de comercio electrónico que conecta artesanos locales con compradores.</p>
+                        <p>Plataforma educativa que conecta estudiantes con profesores destacados en República Dominicana. Sistema de búsqueda avanzada y reseñas auténticas.</p>
                         <a href="trabajo.html" class="work-link">Ver Proyecto <span class="arrow">→</span></a>
                     </div>
                 </div>
@@ -207,9 +321,9 @@
                         <img src="images/projects/noticiasdm.png" alt="NoticiasDM" />
                     </a>
                     <div class="work-info">
-                        <span class="work-category">Desarrollo Web, SEO</span>
+                        <span class="work-category">Medios, Periodismo Digital</span>
                         <h3>NoticiasDM</h3>
-                        <p>Portal corporativo con sistema de gestión de clientes y panel administrativo avanzado.</p>
+                        <p>Portal de noticias dominicano con cobertura nacional e internacional. Diseño moderno y sistema de gestión de contenido optimizado para periodistas.</p>
                         <a href="trabajo.html" class="work-link">Ver Proyecto <span class="arrow">→</span></a>
                     </div>
                 </div>

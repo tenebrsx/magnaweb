@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://magnaweb.netlify.app/sitemap.xml
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow all images and CSS
+Allow: /images/
+Allow: /css/
+Allow: /js/ 
