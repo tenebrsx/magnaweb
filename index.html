@@ -52,33 +52,71 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome - Official CDN with fallback -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom Icon System - CSS-only reliable icons -->
+    <style>
+        /* Custom Icon System using Unicode symbols */
+        .icon {
+            display: inline-block;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+                 /* WhatsApp Icon - Custom styled */
+         .icon-whatsapp {
+             background: #25D366;
+             color: white;
+             border-radius: 50%;
+             width: 20px;
+             height: 20px;
+             display: inline-flex;
+             align-items: center;
+             justify-content: center;
+             font-size: 12px;
+             margin-right: 8px;
+         }
+         .icon-whatsapp::before {
+             content: "W";
+             font-weight: bold;
+             font-family: Arial, sans-serif;
+         }
+        
+        /* Check icon - Green checkmark */
+        .icon-check {
+            color: #ff3d00;
+            font-size: 16px;
+        }
+        .icon-check::before {
+            content: "✓";
+            font-weight: bold;
+        }
+        
+        /* Shield icon */
+        .icon-shield::before {
+            content: "🛡️";
+        }
+        
+        /* Clock icon */
+        .icon-clock::before {
+            content: "🕐";
+        }
+        
+        /* Money/Payment icon */
+        .icon-payment::before {
+            content: "💳";
+        }
+        
+        /* Fallback Font Awesome with better detection */
+        .fa-fallback {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 5 Free', 'Font Awesome 5 Brands', sans-serif;
+        }
+    </style>
     
-    <!-- Font Awesome Fallback -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if Font Awesome loaded
-            const testIcon = document.createElement('i');
-            testIcon.className = 'fas fa-home';
-            testIcon.style.display = 'none';
-            document.body.appendChild(testIcon);
-            
-            const computedStyle = window.getComputedStyle(testIcon, '::before');
-            const fontFamily = computedStyle.getPropertyValue('font-family');
-            
-            if (!fontFamily.includes('Font Awesome')) {
-                console.log('Font Awesome failed to load, loading fallback...');
-                const fallbackLink = document.createElement('link');
-                fallbackLink.rel = 'stylesheet';
-                fallbackLink.href = 'https://use.fontawesome.com/releases/v6.7.2/css/all.css';
-                fallbackLink.crossOrigin = 'anonymous';
-                document.head.appendChild(fallbackLink);
-            }
-            
-            document.body.removeChild(testIcon);
-        });
-    </script>
+    <!-- Font Awesome - Keep as fallback but load more reliably -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -375,27 +413,27 @@
                     </div>
                     <ul class="pricing-features">
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Sitio web profesional de 3-5 páginas
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Diseño responsive (móvil + desktop)
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Formulario de contacto funcional
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Integración con redes sociales
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Optimización SEO básica
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Botón de WhatsApp integrado
                         </li>
                     </ul>
@@ -415,27 +453,27 @@
                     </div>
                     <ul class="pricing-features">
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Tienda online con hasta 100 productos
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Integración de pagos locales (CardNet, etc.)
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Panel de administración
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Diseño personalizado + UX optimizada
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             SEO avanzado
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Capacitación de uso (video tutoriales)
                         </li>
                     </ul>
@@ -454,23 +492,23 @@
                     </div>
                     <ul class="pricing-features">
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Desarrollo a medida (sistemas, dashboards)
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Integraciones personalizadas (CRMs, inventario)
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Consultoría digital
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Estrategia SEO + posicionamiento
                         </li>
                         <li>
-                            <i class="fas fa-check"></i>
+                            <i class="icon icon-check"></i>
                             Hosting premium y soporte prioritario
                         </li>
                     </ul>
@@ -483,17 +521,17 @@
 
             <div class="pricing-info">
                 <div class="info-card">
-                    <i class="fas fa-shield-alt"></i>
+                    <i class="icon icon-shield"></i>
                     <h4>Garantía de Satisfacción</h4>
                     <p>Si no quedas satisfecho con el resultado, trabajaremos hasta que lo estés.</p>
                 </div>
                 <div class="info-card">
-                    <i class="fas fa-clock"></i>
+                    <i class="icon icon-clock"></i>
                     <h4>Soporte Local</h4>
                     <p>Asistencia técnica en tu horario, en tu idioma.</p>
                 </div>
                 <div class="info-card">
-                    <i class="fas fa-hand-holding-usd"></i>
+                    <i class="icon icon-payment"></i>
                     <h4>Opciones de Pago</h4>
                     <p>Facilidades de pago disponibles para todos los paquetes.</p>
                 </div>
@@ -527,7 +565,7 @@
 
     <!-- WhatsApp Button -->
     <a href="https://wa.me/18093588113" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i>
+        <i class="icon icon-whatsapp"></i>
         <span class="whatsapp-text">Chatea con nosotros</span>
     </a>
 
@@ -554,6 +592,6 @@
 
     <!-- EmailJS CDN -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="js/main.js?v=1750356864&fontawesome=fallback"></script>
+    <script src="js/main.js?v=1750357423&icons=custom"></script>
 </body>
 </html>
