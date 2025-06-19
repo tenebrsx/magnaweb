@@ -243,10 +243,16 @@
 
     <script>
         // Hardcoded credentials (secure)
-        const CREDENTIALS = {
-            username: 'isaac',
-            password: '2004'
-        };
+        const CREDENTIALS = [
+            {
+                username: 'isaac',
+                password: 'AngelLucas2025'
+            },
+            {
+                username: 'Angel',
+                password: 'AngelLucas2025'
+            }
+        ];
 
         // Blog posts data
         let posts = [
@@ -311,10 +317,18 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             
-            if (username === CREDENTIALS.username && password === CREDENTIALS.password) {
+            const validUser = CREDENTIALS.find(cred => 
+                cred.username === username && cred.password === password
+            );
+            
+            if (validUser) {
                 document.getElementById('loginForm').classList.add('hidden');
                 document.getElementById('dashboard').classList.remove('hidden');
                 loadPosts();
+                
+                // Store current user
+                window.currentUser = validUser.username;
+                document.querySelector('.dashboard-header h1').textContent = `Gestión de Blog - ${validUser.username}`;
             } else {
                 document.getElementById('loginError').classList.remove('hidden');
                 setTimeout(() => {
